@@ -1,1 +1,1 @@
-# AutomationTesting
+# AutomationTesting for Examly Mango Education
