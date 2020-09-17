@@ -12,7 +12,7 @@ describe('check the UI features for correctness',function(){
         if((browser.getCurrentUrl())!="https://pscollege841.examly.net/login")   // Redirects to the login page if any other page opens by mistake 
         {
             browser.get('https://pscollege841.examly.net/login');
-            browser.sleep(10000);
+            browser.sleep(12000);
         }
 
         element(by.className("crisp-bz13r8 crisp-i1yn7v")).isPresent().then(function (results){  // Closes the chat box,if it is open
@@ -67,11 +67,7 @@ describe('Check for correct user name or email',function(){
         browser.get('https://pscollege841.examly.net/login');
         browser.waitForAngularEnabled(false);
         browser.sleep(10000);
-        /*element(by.className("crisp-bz13r8 crisp-i1yn7v")).isPresent().then(function (results){
-            if(results){
-                element(by.className("crisp-bz13r8 crisp-i1yn7v")).click(); 
-        }
-        })*/
+      
         browser.sleep(5000);
         element(by.id("email")).sendKeys("");                      //Sends the text "" to email text box
         element(by.className("container logo")).click();           //Clicks on some other part on the webpage 
@@ -85,11 +81,6 @@ describe('Check for correct user name or email',function(){
         browser.waitForAngularEnabled(false);
         browser.sleep(10000);
         
-        /*element(by.className("crisp-1vzg1qq")).isPresent().then(function (results){
-            if(results){
-                element(by.className("crisp-1vzg1qq")).click(); 
-        }
-        })*/
     });
 
     it('should prompt when user clicks the next button directly without giving email',function(){
@@ -141,17 +132,7 @@ describe('checK the UI features of the password page for correctness',function()
         browser.waitForAngularEnabled(false);
         browser.sleep(12000);
         browser.sleep(3000);
-        /*element(by.className("crisp-bz13r8 crisp-i1yn7v")).isPresent().then(function (results){
-            if(results){
-                element(by.className("crisp-bz13r8 crisp-i1yn7v")).click(); 
-        }
-        })
-        
-        element(by.className("crisp-1vzg1qq")).isPresent().then(function (results){
-            if(results){
-                element(by.className("crisp-1vzg1qq")).click(); 
-        }
-        })*/
+       
         element(by.id("email")).sendKeys("studentpractice1@examly.in");    /*Loads the password page by entering correct email*/
         element(by.id("lgnNext0")).click();                                     
         browser.sleep(12000);
@@ -203,11 +184,7 @@ describe('Check for the correct password',function(){
         browser.get('https://pscollege841.examly.net/login');
         browser.waitForAngularEnabled(false);
         browser.sleep(12000);
-        /*element(by.className("crisp-bz13r8 crisp-i1yn7v")).isPresent().then(function (results){
-            if(results){
-                element(by.className("crisp-bz13r8 crisp-i1yn7v")).click(); 
-        }
-        })*/
+        
         browser.sleep(5000);
         element(by.id("email")).sendKeys("studentpractice1@examly.in");
         browser.sleep(2000);
@@ -223,17 +200,7 @@ describe('Check for the correct password',function(){
         browser.get('https://pscollege841.examly.net/login');
         browser.waitForAngularEnabled(false);
         browser.sleep(12000);
-        /*element(by.className("crisp-bz13r8 crisp-i1yn7v")).isPresent().then(function (results){
-            if(results){
-                element(by.className("crisp-bz13r8 crisp-i1yn7v")).click(); 
-        }
-        })
         
-       /* element(by.className("crisp-1vzg1qq")).isPresent().then(function (results){
-            if(results){
-                element(by.className("crisp-1vzg1qq")).click(); 
-        }
-        })*/
         browser.sleep(1000);
         element(by.id("email")).sendKeys("studentpractice1@examly.in");
         element(by.id("lgnNext0")).click();                                             //Moves to the password page
@@ -275,15 +242,16 @@ describe('Check for the correct password',function(){
         var msg=element(by.xpath("/html/body/app-root/div/app-login/div/div[2]/app-dynamic/div/div/div[2]/div"));       //Checks for the error message
         expect(msg.getText()).toEqual("Reset password link has been sent to your Email ID");
         element(by.xpath("/html/body/app-root/div/app-login/div/div[2]/app-dynamic/div/div/div[3]/app-button/button")).click();
-    });
-
-    it('should login when the password is correct',function(){
-        browser.sleep(2000);
+        browser.sleep(4000);
         if((browser.getCurrentUrl())!="https://pscollege841.examly.net/login")   // Redirects to the login page if any other page opens by mistake 
         {
             browser.get('https://pscollege841.examly.net/login');
-            browser.sleep(10000);
+            browser.sleep(8000);
         }
+    });
+
+    it('should login when the password is correct',function(){
+        
         element(by.id("password")).sendKeys("studentpractice1");
         browser.sleep(3000);
         element(by.id("lgnLogin0")).click();                                        //It gives the correct password
